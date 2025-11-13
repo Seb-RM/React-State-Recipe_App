@@ -5,12 +5,12 @@ You are an assistant that receives a list of ingredients that a user has and sug
 `;
 
 const hf = new InferenceClient(import.meta.env.VITE_HF_ACCESS_TOKEN);
-
+console.log(hf)
 export async function getRecipeFromMistral(ingredientsArr) {
     const ingredientsString = ingredientsArr.join(", ");
     try {
         const response = await hf.chatCompletion({
-            model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
+            model: "mistralai/Mistral-7B-Instruct-v0.2",
             messages: [
                 { role: "system", content: SYSTEM_PROMPT },
                 {
