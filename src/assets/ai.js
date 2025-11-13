@@ -22,6 +22,10 @@ export async function getRecipeFromMistral(ingredientsArr) {
         });
         return response.choices[0].message.content;
     } catch (err) {
-        console.error(err.message);
+        console.error("Error details:", err);
+        if (err.response) {
+            console.error("Response status:", err.response.status);
+            console.error("Response data:", err.response.data);
+        }
     }
 }
